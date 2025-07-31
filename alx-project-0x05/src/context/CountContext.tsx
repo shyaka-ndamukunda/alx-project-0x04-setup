@@ -6,7 +6,7 @@ interface CountContextProps {
   decrement: () => void
 }
 
-export const CountContext = createContext<CountContextProps | undefined>(undefined)
+export const CountContext = createContext<CountContextProps | null>(null)
 
 export const CountProvider = ({ children }: { children: ReactNode}) => {
 
@@ -29,5 +29,5 @@ export const useCount = () => {
     throw new Error("useCount must be used within a CountProvider")
   }
 
-  return context
+  return context as CountContextProps // CHANGED TO THIS LINE
 }
