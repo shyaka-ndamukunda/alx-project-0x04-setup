@@ -1,14 +1,15 @@
-import { useState } from 'react';
+// pages/counter-app.tsx
+import React, { useState } from 'react';
 
 const CounterApp: React.FC = () => {
   const [count, setCount] = useState(0);
 
   const increment = () => {
-    setCount(count + 1);
+    setCount(prevCount => prevCount + 1);
   };
 
   const decrement = () => {
-    setCount(count > 0 ? count - 1 : 0);
+    setCount(prevCount => (prevCount > 0 ? prevCount - 1 : 0));
   };
 
   return (
