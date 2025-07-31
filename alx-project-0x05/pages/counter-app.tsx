@@ -1,8 +1,16 @@
 // pages/counter-app.tsx
-import { useCount } from "@/context/CountContext"; // Import useCount from Context
+import React, { useState } from 'react';
 
 const CounterApp: React.FC = () => {
-  const { count, increment, decrement } = useCount(); // Get count and functions from Context
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount(prevCount => prevCount + 1);
+  };
+
+  const decrement = () => {
+    setCount(prevCount => (prevCount > 0 ? prevCount - 1 : 0));
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-yellow-400 to-pink-500 flex flex-col justify-center items-center text-white">
@@ -22,13 +30,13 @@ const CounterApp: React.FC = () => {
       {/* Buttons */}
       <div className="flex space-x-4">
         <button
-          onClick={increment} // Use Context increment function
+          onClick={increment}
           className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300 shadow-lg transform hover:scale-105"
         >
           Increment 🚀
         </button>
         <button
-          onClick={decrement} // Use Context decrement function
+          onClick={decrement}
           className="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300 shadow-lg transform hover:scale-105"
         >
           Decrement 👎
