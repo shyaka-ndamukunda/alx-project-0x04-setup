@@ -1,9 +1,9 @@
 import { createContext, useContext,  useState, ReactNode } from "react"
 
 interface CountContextProps {
-  count: number; // Keep this one
-  increment: () => void; // <--- ADD A SEMICOLON HERE
-  decrement: () => void; // <--- ADD A SEMICOLON HERE
+  count: number;
+  increment: () => void;
+  decrement: () => void;
 }
 
 // Ensure this line is still:
