@@ -1,22 +1,8 @@
-<<<<<<< HEAD
-import { useCount } from "@/context/CountContext"; // Import useCount hook
+// pages/counter-app.tsx
+import { useCount } from "@/context/CountContext"; // Import useCount from Context
 
 const CounterApp: React.FC = () => {
-  const { count, increment, decrement } = useCount(); // Use the context hook
-=======
-import { useState } from 'react';
-
-const CounterApp: React.FC = () => {
-  const [count, setCount] = useState(0);
-
-  const increment = () => {
-    setCount(count + 1);
-  };
-
-  const decrement = () => {
-    setCount(count > 0 ? count - 1 : 0);
-  };
->>>>>>> 85dde0c4380e0bfff46c35a8479d4073ff1d64d1
+  const { count, increment, decrement } = useCount(); // Get count and functions from Context
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-yellow-400 to-pink-500 flex flex-col justify-center items-center text-white">
@@ -36,13 +22,13 @@ const CounterApp: React.FC = () => {
       {/* Buttons */}
       <div className="flex space-x-4">
         <button
-          onClick={increment}
+          onClick={increment} // Use Context increment function
           className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300 shadow-lg transform hover:scale-105"
         >
           Increment 🚀
         </button>
         <button
-          onClick={decrement}
+          onClick={decrement} // Use Context decrement function
           className="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300 shadow-lg transform hover:scale-105"
         >
           Decrement 👎
